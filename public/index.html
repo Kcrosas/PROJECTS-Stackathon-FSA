@@ -1,10 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Final Project</title>
     <script defer src="/dist/main.js"></script>
+    <style>
+      body {
+        background-color: #00aab3;
+        font-family: "Gill Sans", sans-serif;
+        width: 800px;
+        padding-left: 30px;
+        color: #00adb5;
+        display: flex;
+        flex-direction: column;
+      }
+      .wrapper,
+      .wrapper1 {
+        margin: 3px;
+        width: 600px;
+        height: 400px;
+        padding: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        background-color: #222831;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      input[type="range"] {
+        /* -webkit-appearance: none;
+        appearance: none;
+        background: transparent; */
+        cursor: pointer;
+      }
+      p {
+        color: #00adb5;
+      }
+      h1 {
+        text-align: center;
+        color: #d0ce7c;
+      }
+      .square {
+        /* background-color: red; */
+        background: url("/media/mashi.png");
+        background-color: #ebeaba;
+        background-blend-mode: multiply;
+
+        background-size: 100%;
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        border: 1px solid #00adb5;
+      }
+      .square > img {
+        max-height: 100%;
+        max-width: 100%;
+        background: transparent;
+      }
+      .nextSquare {
+        background-color: #d0ce7c;
+        width: 20px;
+        height: 20px;
+        border-radius: 2rem;
+      }
+      .anotherOne {
+        background-color: #d0ce7c;
+        width: 10px;
+        height: 10px;
+        border-radius: 2rem;
+        border: 2px solid red;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div class="wrapper">
+      <div id="root"></div>
+    </div>
+    <div class="wrapper1">
+      <div class="square" onclick="myFunction(this)">
+        <!-- <img src="media/mashi.png" /> -->
+      </div>
+    </div>
+
+    <script>
+      function myFunction(divObj) {
+        //divObj.style.background="#000000"
+        let stil = window
+          .getComputedStyle(divObj)
+          .getPropertyValue("background-color");
+        console.log(stil);
+
+        if (stil === "rgb(255, 0, 0)") {
+          console.log("sup");
+          divObj.style.background = "#0000FF";
+        }
+        if (stil === "rgb(0, 0, 255)") {
+          console.log("sup");
+          divObj.style.background = "#000000";
+        }
+        if (stil === "rgb(0, 0, 0)") {
+          console.log("sup");
+          divObj.style.background = "#FF0000";
+        }
+      }
+    </script>
   </body>
 </html>
