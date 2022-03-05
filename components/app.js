@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import anime from "animejs";
 
-class App extends Component {
+class App2 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +26,8 @@ class App extends Component {
       elements[0].parentNode.removeChild(elements[0]);
     }
     console.log("you clicked me");
+    const currentDiv = document.getElementsByClassName("wrapper1");
+
     const newDiv = document.createElement("div");
     newDiv.className = "anotherOne";
 
@@ -35,11 +37,6 @@ class App extends Component {
       return newDiv;
     };
     const stager = [
-      creator(),
-      creator(),
-      creator(),
-      creator(),
-      creator(),
       creator(),
       creator(),
       creator(),
@@ -103,11 +100,23 @@ class App extends Component {
     });
     anime({
       targets: ".anotherOne",
-      translateX: anime.stagger(50),
-      translateY: 10,
-      rotateZ: 360,
-      scale: 3,
-      duration: 3000,
+      translateX: function () {
+        return anime.random(50, 500);
+      },
+      delay: anime.stagger(100, { from: "last" }),
+      // translateY: anime.stagger(50),
+      translateY: function () {
+        return anime.random(0, 200);
+      },
+      rotateZ: function () {
+        return anime.random(180, 720);
+      },
+      scale: function () {
+        return anime.random(3, 10);
+      },
+      easing: "easeOutInCirc",
+
+      duration: 2000,
       loop: true,
     });
     return (
@@ -238,4 +247,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App2;
