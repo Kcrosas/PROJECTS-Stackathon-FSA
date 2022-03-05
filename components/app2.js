@@ -82,7 +82,7 @@ class App extends Component {
             <h2>Total: {this.state.total} </h2> <br />
             {done === true ? (
               <button onClick={onClick2}>
-                Dealer Drew {dealer}, play again?
+                Dealer's Total: {dealer}, play again?
               </button>
             ) : (
               <button onClick={onClick1}>I'm done</button>
